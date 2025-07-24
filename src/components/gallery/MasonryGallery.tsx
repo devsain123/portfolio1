@@ -91,7 +91,7 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({ projects }) => {
       </div>
 
       {/* Masonry Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className={`grid gap-6 ${columns === 1 ? 'grid-cols-1' : columns === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
         {Array.from({ length: columns }, (_, columnIndex) => (
           <div key={columnIndex} className="space-y-6">
             <AnimatePresence>
@@ -110,10 +110,7 @@ const MasonryGallery: React.FC<MasonryGalleryProps> = ({ projects }) => {
                   whileHover={{ 
                     y: -8, 
                     scale: 1.02,
-                    rotateX: 5,
-                    rotateY: 5
                   }}
-                  style={{ transformStyle: 'preserve-3d' }}
                   className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 cursor-pointer group"
                   onClick={() => setSelectedProject(project)}
                 >

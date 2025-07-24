@@ -54,7 +54,7 @@ const TextReveal: React.FC<TextRevealProps> = ({
   return (
     <motion.div
       ref={ref}
-      style={{ overflow: 'hidden', display: 'flex', flexWrap: 'wrap' }}
+      style={{ overflow: 'hidden', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}
       variants={container}
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
@@ -63,7 +63,6 @@ const TextReveal: React.FC<TextRevealProps> = ({
       {words.map((word, index) => (
         <motion.span
           variants={child}
-          style={{ marginRight: '8px' }}
           key={index}
         >
           {word}

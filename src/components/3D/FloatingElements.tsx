@@ -1,9 +1,14 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Sphere, Box, Torus } from '@react-three/drei';
+import { Sphere, Box, Torus, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
-const FloatingShape: React.FC<{ position: [number, number, number]; shape: 'sphere' | 'box' | 'torus' }> = ({ position, shape }) => {
+interface FloatingShapeProps {
+  position: [number, number, number];
+  shape: 'sphere' | 'box' | 'torus';
+}
+
+const FloatingShape: React.FC<FloatingShapeProps> = ({ position, shape }) => {
   const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
@@ -26,9 +31,21 @@ const FloatingShape: React.FC<{ position: [number, number, number]; shape: 'sphe
 
   return (
     <mesh ref={meshRef} position={position}>
-      {shape === 'sphere' && <Sphere args={[0.3, 32, 32]}>{material}</Sphere>}
-      {shape === 'box' && <Box args={[0.4, 0.4, 0.4]}>{material}</Box>}
-      {shape === 'torus' && <Torus args={[0.3, 0.1, 16, 100]}>{material}</Torus>}
+      {shape === 'sphere' && (
+        <Sphere args={[0.3, 32, 32]}>
+          {material}
+        </Sphere>
+      )}
+      {shape === 'box' && (
+        <Box args={[0.4, 0.4, 0.4]}>
+          {material}
+        </Box>
+      )}
+      {shape === 'torus' && (
+        <Torus args={[0.3, 0.1, 16, 100]}>
+          {material}
+        </Torus>
+      )}
     </mesh>
   );
 };
@@ -44,7 +61,10 @@ const FloatingElements: React.FC = () => {
 
   return (
     <div className="absolute inset-0 pointer-events-none">
-      <Canvas camera={{ position: [0, 0, 2], fov: 75 }}>
+      <Canvas 
+        camera={{ position: [0, 0, 2], fov: 75 }}
+        gl={{ antialias: true, alpha: true }}
+      >
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
         {shapes.map((shape, index) => (

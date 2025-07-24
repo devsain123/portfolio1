@@ -143,11 +143,7 @@ const ProjectsSection: React.FC = () => {
               whileHover={{ 
                 y: -8, 
                 scale: 1.02,
-                rotateX: 5,
-                rotateY: 5,
-                z: 50
               }}
-              style={{ transformStyle: 'preserve-3d' }}
               className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
             >
               <div className="aspect-video bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 flex items-center justify-center relative overflow-hidden">
@@ -207,11 +203,7 @@ const ProjectsSection: React.FC = () => {
               whileHover={{ 
                 y: -8, 
                 scale: 1.02,
-                rotateX: 5,
-                rotateY: 5,
-                z: 50
               }}
-              style={{ transformStyle: 'preserve-3d' }}
               className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
             >
               <div className="aspect-video bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-lg mb-4 relative overflow-hidden">
@@ -280,11 +272,7 @@ const ProjectsSection: React.FC = () => {
               whileHover={{ 
                 y: -8, 
                 scale: 1.02,
-                rotateX: 5,
-                rotateY: 5,
-                z: 50
               }}
-              style={{ transformStyle: 'preserve-3d' }}
               className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
             >
               <div className="aspect-video bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 flex items-center justify-center relative overflow-hidden">

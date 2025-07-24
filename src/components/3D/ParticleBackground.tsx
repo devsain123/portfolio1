@@ -26,7 +26,16 @@ const ParticleField: React.FC = () => {
   });
 
   return (
-    <Points ref={ref} positions={particlesPosition} stride={3} frustumCulled={false}>
+    <group ref={ref}>
+      <points>
+        <bufferGeometry>
+          <bufferAttribute
+            attach="attributes-position"
+            count={particlesPosition.length / 3}
+            array={particlesPosition}
+            itemSize={3}
+          />
+        </bufferGeometry>
       <PointMaterial
         transparent
         color="#3b82f6"
@@ -35,7 +44,8 @@ const ParticleField: React.FC = () => {
         depthWrite={false}
         opacity={0.6}
       />
-    </Points>
+      </points>
+    </group>
   );
 };
 
@@ -44,7 +54,8 @@ const ParticleBackground: React.FC = () => {
     <div className="absolute inset-0 -z-10">
       <Canvas
         camera={{ position: [0, 0, 1] }}
-        style={{ background: 'transparent' }}
+        gl={{ antialias: true, alpha: true }}
+        style={{ background: 'transparent', pointerEvents: 'none' }}
       >
         <ParticleField />
       </Canvas>
